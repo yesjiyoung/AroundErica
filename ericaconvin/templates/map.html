@@ -1,0 +1,153 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Erica_HotRestaurant</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+
+    <link href="{% static 'css/mymy.css' %}?ver=1" rel="stylesheet">
+
+  </head>
+  <body>
+      <header>
+          <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                  <h4 class="text-white">하이에리카</h4>
+                  <p class="text-muted">하냥이에게 학교와 주변에 대해서만 다 물어봐!</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                  <h4 class="text-white">Contents</h4>
+                  <ul class="list-unstyled">
+                    <li><a href="{% url 'map' %}" class="text-white">지도</a></li>
+                    <li><a href="{% url 'hotplace'%}" class="text-white">맛집</a></li>
+                    <li><a href="{% url 'convin' %}" class="text-white">편의시설</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+              <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <strong>하이에리카</strong>
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+          </div>
+        
+        </header>
+
+<main role="main">  
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">한양대 에리카 길찾기!</h1>
+      <p class="lead text-muted">이름을 검색하면, 색깔과 번호를 안내해 드립니다!</p>
+      <div>
+
+        <label for="building_name" style="font-size: 25px;">건물이름 </label>
+        <input type="text" class ="building_name_form" id="building_name_Form" placeholder="도움은 아래 버튼 클릭!"/>
+        <input type="button" onclick="mapping()" value="찾기!">
+        <hr>
+        <p id="map_form"></p>
+        
+      </div>
+      
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+    건물 목록
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">검색 가능한 단어 목록이에요</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          본관, 학술정보관, 학정, 학생회관<hr>제1공학관, 1공, 제2공학관, 2공, 제3공학관, 3공<hr>제4공학관, 4공, 제5공학관, 5공<hr>건축디자인관, 초대형구조실험동
+          <hr>풍환경실험관, 수리실험동<hr>디자인문화관, 디자인교육관, 디자인연구관<hr>
+          경상대, 경상관, 국제문화관, 국문대<hr>사회교육관, 학군단, 언론정보관, 언정대<hr>
+          제1과학기술관, 1과기, 입학처, 입학팀<hr>컨퍼런스홀, 컨퍼<hr>제2과학기술관, 2과기<hr>
+          실용영어교육관, 제1학술관<hr>폐수처리장관리동, 버스승강장, 셔틀콕<hr>게스트하우스, 게하, 창업보육센터, 창업보육센터
+          <hr>약학관, 약대, 동물실험동<hr>학연산클러스터지원센터, 클러스터, 공장형실험동, 포장가속실험동<hr>
+          퓨전전기기술응용연구센터, BMR센터<hr>Lion's Hall, 라이언스홀<hr>학술정보관, 학정, 체육관, 체대<hr>
+          실용음악관, 뮤즈 홀, 음대, 골프연습장<hr>대운동장본부석, 테니스장관리동<hr>창의관, 인재3관, 행복관, 창의인재원 교육관, 창의인재원
+          <hr>경기테크노파크, 한국산업기술시험원, 생산기술연구원<hr>한국전기연구원, LG이노텍, 마이크론연구소<hr>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </div>
+  </section>
+  <div class = "himap"> 
+     <img id ="mapimg" src = "{% static 'png\mapppp.jpg'%}">
+  </div>
+</main>
+
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.3/getting-started/introduction/">getting started guide</a>.</p>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script type = "text/javascript">
+
+var building_name_form = document.querySelector('.building_name_form');
+var map = new Array("본관", "노란색 101", "학생복지관", "노란색 102", "학정", "노란색 102", "학생회관", "노란색 103", "제2공학관", "노란색 104", "2공", "노란색 104", "건축디자인관", "노란색 105",
+"초대형구조실험동", "노란색 106", "풍환경실험관", "노란색 107", "수리실험동", "노란색 108", "디자인문화관", "노란색 109", "디자인교육관", "노란색 110", "디자인연구관", "노란색 111", "경상관", "빨간색 201", "경상대", "빨간색 201",
+ "국제문화관", "빨간색 202", "국문대", "빨간색 202", "사회교육관", "빨간색 203", "학군단", "빨간색 203", "언론정보관", "빨간색 204", "언정대", "빨간색 204", "제1과학기술관", "빨간색 205", "1과기", "빨간색 205",
+ "입학처", "빨간색 205", "입학팀", "빨간색 205", "컨퍼런스홀", "빨간색 206", "컨퍼", "빨간색 206", "제2과학기술관", "빨간색 207", "2과기", "빨간색 207", "실용영어교육관", "빨간색 208", "제1학술관", "빨간색 209",
+ "제1공학관", "파란색 301", "1공", "파란색 301", "폐수처리장관리동", "파란색 302", "제3공학관", "파란색 303", "3공", "파란색 303", "제4공학관", "파란색 304", "4공", "파란색 304", "제5공학관", "파란색 305", "5공", "파란색 305",
+  "버스승강장", "파란색 306", "셔틀콕", "파란색 306", "게스트하우스", "파란색 307", "게하", "파란색 307", "창업보육센터", "파란색 308", "창보", "파란색 308", "약학관", "파란색 309", "약대", "파란색 309", "동물실험동", "파란색 310",
+"학연산클러스터지원센터", "파란색 311", "클러스터", "파란색 311", "공장형실험동", "파란색 312", "포장가속실험동", "파란색 313", "퓨전전기기술응용연구센터", "파란색 314", "BMR센터", "파란색 315", "Lion's Hall", "파란색 316", "리어언스홀", "파란색 316",
+"학술정보관", "민트색 401", "학정", "민트색 401", "체육관", "민트색 402", "체대", "민트색 402", "실용음악관", "민트색 403", "뮤즈 홀", "민트색 403", "음대", "민트색 403", "골프연습장", "민트색 404", "대운동장본부석", "민트색 405", "테니스장관리동", "민트색 406",
+"창의관", "자두색 501", "인재3관", "자두색 502", "행복관", "자두색 503", "창의인재원 교육관", "자두색 504", "창의인재원", "자두색 504", "경기테크노파크", "초록색 C01", "한국산업기술시험원", "초록색 C02", "생산기술연구원", "초록색 C03",
+"한국전기연구원", "초록색 C04", "LG이노텍", "초록색 C05", "마이크론연구소", "초록색 C05"
+ ); 
+
+function mapping(){
+  if (map.includes(building_name_form.value)==true){
+    j=map.indexOf(building_name_form.value);
+    map_form.innerHTML="입력하신 '"+building_name_form.value+"'의 위치는 "+ map[j+1] +"번 입니다.";
+  }else{
+    map_form.innerHTML="입력하신 건물 이름을 확인해 주세요.";
+  }
+}
+  
+</script>
+</html>

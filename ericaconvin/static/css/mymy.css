@@ -1,0 +1,58 @@
+@font-face { font-family: 'UhBeeSe_hyun'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeSe_hyun.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'BMJUA'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+header {
+    font-family: 'UhBeeSe_hyun';
+    /*color:#3274b9!important;*/
+}
+
+body {
+    background-color: #3274b9;
+    font-family: 'BMJUA';
+}
+
+img {
+    width: 100%;
+}
+
+list-group-item:hover{
+    text-decoration: none;
+    color: lightblue;
+}
+
+#title{
+    color: white;
+}
+
+.list-group{
+    width: 60%; 
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.list-group-item{
+    color: white !important;
+    background-color: #3274b9 !important;
+    border: none;   
+}
+
+.badge{
+    color: #3274b9 !important;
+    background-color: white !important;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
